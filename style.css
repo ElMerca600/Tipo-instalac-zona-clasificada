@@ -1,0 +1,57 @@
+/* style.css: Prioridad en colores Magenta y Verde y estética industrial */
+
+@keyframes fade-in { 
+  from { opacity: 0; transform: translateY(10px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+.animate-fade-in { 
+  animation: fade-in 0.4s ease-out forwards; 
+}
+
+/* Ocultar flechas en los inputs numéricos para un aspecto más limpio */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Selección de texto en magenta */
+::selection {
+  background-color: #d946ef; /* Fuchsia 500 */
+  color: white;
+}
+
+/* Opciones del select consistentes con dark mode */
+.custom-select option {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Efecto de resplandor sutil (glow effect) al botón principal */
+#btn-calculate {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#btn-calculate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(217,70,239,0) 0%, rgba(16,185,129,0.3) 50%, rgba(217,70,239,0) 100%);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+#btn-calculate:hover::before {
+  transform: translateX(100%);
+}
